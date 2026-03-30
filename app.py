@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify
 import pickle
+import os
 
 app = Flask(__name__)
 
 # Load trained model
-model = pickle.load(open("diabetes_model.pkl", "rb"))
+model = pickle.load(open("model.pkl", "rb"))
 
 @app.route("/")
 def home():
@@ -34,4 +35,4 @@ def predict():
     })
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))

@@ -1,16 +1,16 @@
 import requests
 
-url = "http://127.0.0.1:5000/predict"
+url = "https://diabetes-api-mleu.onrender.com/predict"
 
 data = {
     "pregnancies": 2,
-    "glucose": 140,
+    "glucose": 130,
     "blood_pressure": 80,
     "skin_thickness": 20,
     "insulin": 85,
-    "bmi": 32,
+    "bmi": 28.5,
     "dpf": 0.5,
-    "age": 45
+    "age": 30
 }
 
 response = requests.post(url, json=data)
